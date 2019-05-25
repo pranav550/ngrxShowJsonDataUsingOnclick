@@ -1,18 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import { AppComponent }  from './app.component';
+import { ArticleComponent }  from './components/article.component';
+import { reducers, metaReducers } from './reducers/reducers';
 
 @NgModule({
+  imports: [     
+        BrowserModule,
+		StoreModule.forRoot(reducers, {metaReducers})
+  ],
   declarations: [
-    AppComponent
+        AppComponent,
+		ArticleComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+  providers: [
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+        AppComponent
+  ]
 })
 export class AppModule { }
